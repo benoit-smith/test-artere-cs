@@ -2,7 +2,7 @@ package com.arterecs.ecommerce.entities;
 
 public class Product {
 
-    private Long productId;
+    private Long productId; // Unique identifier
 
     private String name;
 
