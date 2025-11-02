@@ -1,7 +1,8 @@
 package com.arterecs.ecommerce.services;
 
 import com.arterecs.ecommerce.entities.*;
-import java.util.List;
+import java.util.*;
+import java.util.stream.*;
 import org.apache.commons.collections4.CollectionUtils;
 
 public class CartService {
@@ -32,5 +33,36 @@ public class CartService {
             })
             .reduce(0, Double::sum);
     }
+
+    public void addProductToCart(Long customerId, Product product, Long count) {
+        List<Cart> customerCart = this.getCustomerCart(Long customerId);
+        if (CollectionUtils.isEmpty(customerCart) || customerCart.stream().noneMatch(cart -> cart.getProductId().equals(product.getProductId()))) {
+            Cart cart = new Cart();
+            cart.setCustomerId(customerId);
+            cart.setProductId(product.getProductId());
+            cart.setCount(count);
+            //TODO save Cart cart - since it's a new entity, set an incrementally generated cartId
+        } else {
+            this.updateProductCountInCart(customerId, product, count);
+        }
+    }
+
+    public void updateProductCountInCart(Long customerId, Product product, Long count) {
+        List<Cart> customerCart = this.getCustomerCart(Long customerId);
+        if (CollectionUtils.isEmpty(customerCart)) {
+            return;
+        }
+        Optional<Cart> optCart = customerCart.stream().filter(cart -> cart.getProductId().equals(product.getProductId())).findAny();
+        if (optCart.isPresent()) {
+            Cart productCart = optCart.get();
+            if (productCart.getCount() <= count) {
+                //TODO delete Cart productCart
+            } else {
+                productCart.setCount(productCart.getCart() + count);
+                //TODO save Cart productCart
+            }
+        }
+    }
+
 
 }
