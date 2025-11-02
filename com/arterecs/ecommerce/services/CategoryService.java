@@ -23,6 +23,16 @@ public class CategoryService {
         return ret;
     }
 
+    public bindCategoryToParentCategory(Category category, Category parentCategory) {
+        category.setParentCategoryId(parentCategory.getCategoryId());
+        //TODO save Category category
+    }
+
+    public unbindCategoryFromParentCategory(Category category) {
+        category.setParentCategoryId(null);
+        //TODO save Category category
+    }
+
     public void deleteCategory(Category categoryId) {
         //TODO delete Category entity by categoryId
     }
