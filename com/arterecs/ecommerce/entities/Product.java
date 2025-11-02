@@ -8,7 +8,7 @@ public class Product {
 
     private Double price;
 
-    private Long count;
+    private Long stock;
 
     private Long categoryId;
 
@@ -16,12 +16,12 @@ public class Product {
         super();
     }
 
-    public Product(Long productId, String name, Double price, Long count, Long categoryId) {
+    public Product(Long productId, String name, Double price, Long stock, Long categoryId) {
         super();
         this.productId = productId;
         this.name = name;
         this.price = price;
-        this.count = count;
+        this.stock = stock;
         this.categoryId = categoryId;
     }
 
@@ -46,12 +46,12 @@ public class Product {
         this.price = price;
     }
 
-    public Long getCount() {
-        return count;
+    public Long getStock() {
+        return stock;
     }
 
-    public void setCount(Long count) {
-        this.count = count;
+    public void setStock(Long stock) {
+        this.stock = stock;
     }
 
     public Long getCategoryId() {
