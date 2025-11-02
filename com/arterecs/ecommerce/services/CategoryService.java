@@ -18,7 +18,7 @@ public class CategoryService {
         ret.setName(name);
         ret.setDescription(description);
         ret.setParentCategoryId(parentCategoryId);
-        //TODO save - if it's a new entity, set an incrementally generated categoryId
+        //TODO save Category ret - if it's a new entity, set an incrementally generated categoryId
 
         return ret;
     }
