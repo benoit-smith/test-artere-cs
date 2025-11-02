@@ -56,7 +56,7 @@ public class CartService {
         if (optCart.isPresent()) {
             Cart productCart = optCart.get();
             if (productCart.getCount() <= count) {
-                //TODO delete Cart productCart
+                this.deleteProductFromCart(customerId, product);
             } else {
                 productCart.setCount(productCart.getCart() + count);
                 //TODO save Cart productCart
@@ -64,5 +64,8 @@ public class CartService {
         }
     }
 
+    public void deleteProductFromCart(Long customerId, Product product) {
+        //TODO delete all Cart entities by customerId and productId
+    }
 
 }
