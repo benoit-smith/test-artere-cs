@@ -7,11 +7,11 @@ public class Category {
     private String description;
     private Long parentCategoryId;
 
-    public CategoryId() {
+    public Category() {
         super();
     }
 
-    public CategoryId(Long categoryId, String name, String description, Long parentCategoryId) {
+    public Category(Long categoryId, String name, String description, Long parentCategoryId) {
         super();
         this.categoryId = categoryId;
         this.name = name;
