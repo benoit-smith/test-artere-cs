@@ -2,7 +2,7 @@ package com.arterecs.ecommerce.entities;
 
 public class Category {
 
-    private Long categoryId;
+    private Long categoryId; // Unique identifier
     private String name;
     private String description;
     private Long parentCategoryId;
