@@ -20,10 +20,21 @@ public class ProductService {
         ret.setPrice(price);
         ret.setStock(stock);
         ret.setCategoryId(categoryId);
-        //TODO save - if it's a new entity, set an incrementally generated productId
+        //TODO save Product ret - if it's a new entity, set an incrementally generated productId
 
         return ret;
     }
+
+    public bindProductToCategory(Product product, Category category) {
+        product.setCategoryId(category.getCategoryId());
+        //TODO save Product product
+    }
+
+    public unbindProductFromCategory(Product product) {
+        product.setCategoryId(null);
+        //TODO save Product product
+    }
+
 
     public void deleteProduct(Product productId) {
         //TODO delete Product entity by productId
